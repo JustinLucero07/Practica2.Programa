@@ -25,17 +25,8 @@ public class Cantante extends Persona {
         discografia = new ArrayList();
     }
 
-    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, List<Disco> discos, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
+    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, List<Disco> discografia, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
         super(codigo, nombre, apellido, edad, nacionalidad, salario);
-        this.nombreArtistico = nombreArtistico;
-        this.generoMusical = generoMusical;
-        this.numeroDeSencillos = numeroDeSencillos;
-        this.numeroDeConciertos = numeroDeConciertos;
-        this.numeroDeGiras = numeroDeGiras;
-        this.discografia = discos;
-    }
-
-    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, List<Disco> discografia) {
         this.nombreArtistico = nombreArtistico;
         this.generoMusical = generoMusical;
         this.numeroDeSencillos = numeroDeSencillos;
@@ -43,36 +34,30 @@ public class Cantante extends Persona {
         this.numeroDeGiras = numeroDeGiras;
         this.discografia = discografia;
     }
-
-    public Cantante(String nombreArtistico, String generoMusical, int numeroDeSencillos, int numeroDeConciertos, int numeroDeGiras, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
-        super(codigo, nombre, apellido, edad, nacionalidad, salario);
-        this.nombreArtistico = nombreArtistico;
-        this.generoMusical = generoMusical;
-        this.numeroDeSencillos = numeroDeSencillos;
-        this.numeroDeConciertos = numeroDeConciertos;
-        this.numeroDeGiras = numeroDeGiras;
-    }
-    
-    
-    
+ 
     @Override
-    public double calcularSalario(double salario) {
-        if(numeroDeSencillos > 10 && numeroDeGiras > 3){
+    public double calcularSalario() {
+        double salarioFinal = getSalario();
+    
+        if (numeroDeSencillos > 10 && numeroDeGiras > 3) {
             int comision = 1000;
-            return salario + comision;
-        }else if (numeroDeSencillos >= 1 && numeroDeSencillos <= 10){
-            double f = salario*0.05;
-            return salario + f;
-        }else if (numeroDeGiras >= 1 && numeroDeGiras <= 3){
-            double g = salario*0.03;
-            return salario + g;
-        }else if (discografia.size() >=5){
-            int bono = 2000;
-            return salario + bono;
+            salarioFinal += comision;
         }
-        System.out.println("El salario es:");
-        return salario;
+        if (numeroDeSencillos >= 1 && numeroDeSencillos <= 10) {
+            double f = salarioFinal * 0.05;
+            salarioFinal += f;
+        }
+        if (numeroDeGiras >= 1 && numeroDeGiras <= 3) {
+            double g = salarioFinal * 0.03;
+            salarioFinal += g;
+        }
+        //if (discografia.size() >= 5) {
+           // int bono = 2000;
+           // salarioFinal += bono;
+        //}
+        return salarioFinal;
     }
+
     
     public void agregarDisco(int codigo,String nombre,int anioDeLanzamiento){
         Disco discoUno = new Disco(codigo, nombre, anioDeLanzamiento);
@@ -151,6 +136,6 @@ public class Cantante extends Persona {
 
     @Override
     public String toString() {
-        return super.toString() + "Cantante:" + "\nNombreArtistico:" + nombreArtistico + "\nGeneroMusical=" + generoMusical + "\nNumeroDeSencillos=" + numeroDeSencillos + "\nNumeroDeConciertos=" + numeroDeConciertos + "\nNumeroDeGiras=" + numeroDeGiras + "\nDiscos=" + discografia + '}';
+        return super.toString() + "\nCantante:" + "\nNombreArtistico:" + nombreArtistico + "\nGeneroMusical=" + generoMusical + "\nNumeroDeSencillos=" + numeroDeSencillos + "\nNumeroDeConciertos=" + numeroDeConciertos + "\nNumeroDeGiras=" + numeroDeGiras + "\nLista de Discos: " + discografia +'}';
     }  
 }

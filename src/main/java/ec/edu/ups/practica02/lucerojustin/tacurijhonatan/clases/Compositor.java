@@ -29,23 +29,34 @@ public class Compositor extends Persona{
         this.cliente = cliente;
     }  
 
+    public Compositor(int numeroDeComposiciones, int codigo, String nombre, String apellido, int edad, String nacionalidad, double salario) {
+        super(codigo, nombre, apellido, edad, nacionalidad, salario);
+        this.numeroDeComposiciones = numeroDeComposiciones;
+    }
+    
+    
+
     
     @Override
-    public double calcularSalario(double salario) {
+    public double calcularSalario() {
+        double salarioFinal = getSalario();
         if (numeroDeComposiciones > 5){
             double regalia = 300;
-            return regalia + salario;
-        }else if(cancionesTop100Billboard.size() >= 1 && cancionesTop100Billboard.size() <= 3){
-            double c = salario * 0.10;
-            return salario + c;
-        }else if (cancionesTop100Billboard.size() >=4 && cancionesTop100Billboard.size() <= 6){
-            double d = salario * 0.20;
-            return salario + d;
-        }else if(cancionesTop100Billboard.size() > 6){
-            double e = salario * 0.20;
-            return salario + e;
+            return regalia + salarioFinal;
         }
-        return salario;
+        /*if(cancionesTop100Billboard.size() >= 1 && cancionesTop100Billboard.size() <= 3){
+            double c = salarioFinal * 0.10;
+            return salarioFinal + c;
+        }
+        if (cancionesTop100Billboard.size() >=4 && cancionesTop100Billboard.size() <= 6){
+            double d = salarioFinal * 0.20;
+            return salarioFinal + d;
+        }
+        if(cancionesTop100Billboard.size() > 6){
+            double e = salarioFinal * 0.20;
+            return salarioFinal + e;
+        }*/
+        return salarioFinal;
     }
     
     public void agregarCancion(int codigo,String titulo,String letra,double tiempoEnMinutos){

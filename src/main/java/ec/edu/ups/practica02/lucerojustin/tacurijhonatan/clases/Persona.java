@@ -84,7 +84,7 @@ public abstract class Persona {
         this.salario = salario;
     }
     
-     public abstract double calcularSalario(double salario);
+     public abstract double calcularSalario();
     
     @Override
     public int hashCode() {
@@ -110,9 +110,7 @@ public abstract class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", nacionalidad=" + nacionalidad + ", salario=" + salario + '}';
+        return "\nPersona:" + "\nCodigo=" + codigo + "\nNombre=" + nombre + "\nApellido=" + apellido + "\nEdad=" + edad + "\nNacionalidad=" + nacionalidad + "\nSalario=" + calcularSalario() + '}';
     }
-    
-    
     
 }
