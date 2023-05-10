@@ -60,84 +60,83 @@ public class Cantante extends Persona { // Define la clase Cantante, que extiend
 
     
     public void agregarDisco(int codigo,String nombre,int anioDeLanzamiento){
-        Disco discoUno = new Disco(codigo, nombre, anioDeLanzamiento);
-        discografia.add(discoUno);
+        Disco discoUno = new Disco(codigo, nombre, anioDeLanzamiento); // Se crea un objeto Disco con los datos pasados como argumento.
+        discografia.add(discoUno); // Se agrega el objeto creado a la lista "discografia".
     }
 
     public String getNombreArtistico() {
-        return nombreArtistico;
+        return nombreArtistico; // Se retorna el valor de la variable "nombreArtistico".
     }
 
     public void setNombreArtistico(String nombreArtistico) {
-        this.nombreArtistico = nombreArtistico;
+        this.nombreArtistico = nombreArtistico; // Se asigna el valor del argumento a la variable "nombreArtistico".
     }
 
     public String getGeneroMusical() {
-        return generoMusical;
+        return generoMusical; // Se retorna el valor de la variable "generoMusical".
     }
 
     public void setGeneroMusical(String generoMusical) {
-        this.generoMusical = generoMusical;
+        this.generoMusical = generoMusical; // Se asigna el valor del argumento a la variable "generoMusical".
     }
 
     public int getNumeroDeSencillos() {
-        return numeroDeSencillos;
+        return numeroDeSencillos; // Se retorna el valor de la variable "numeroDeSencillos".
     }
 
     public void setNumeroDeSencillos(int numeroDeSencillos) {
-        this.numeroDeSencillos = numeroDeSencillos;
+        this.numeroDeSencillos = numeroDeSencillos; // Se asigna el valor del argumento a la variable "numeroDeSencillos".
     }
 
     public int getNumeroDeConciertos() {
-        return numeroDeConciertos;
+        return numeroDeConciertos; // Se retorna el valor de la variable "numeroDeConciertos".
     }
 
     public void setNumeroDeConciertos(int numeroDeConciertos) {
-        this.numeroDeConciertos = numeroDeConciertos;
+        this.numeroDeConciertos = numeroDeConciertos; // Se asigna el valor del argumento a la variable "numeroDeConciertos".
     }
 
     public int getNumeroDeGiras() {
-        return numeroDeGiras;
+        return numeroDeGiras; // Se retorna el valor de la variable "numeroDeGiras".
     }
 
     public void setNumeroDeGiras(int numeroDeGiras) {
-        this.numeroDeGiras = numeroDeGiras;
+        this.numeroDeGiras = numeroDeGiras; // Se asigna el valor del argumento a la variable "numeroDeGiras".
     }
 
     public List<Disco> getDiscos() {
-        return discografia;
+        return discografia; // Se retorna la lista "discografia".
     }
 
     public void setDiscos(List<Disco> discos) {
-        this.discografia = discos;
+        this.discografia = discos; // Se asigna la lista pasada como argumento a la variable "discografia".
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.nombreArtistico);
+        hash = 89 * hash + Objects.hashCode(this.nombreArtistico); // Se calcula el hashcode de la variable "nombreArtistico".
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
-            return true;
+            return true; // Si el objeto es igual a si mismo, retorna verdadero.
         }
         if (obj == null) {
-            return false;
+            return false; // Si el objeto es nulo, retorna falso.
         }
         if (getClass() != obj.getClass()) {
-            return false;
+            return false; // Si los objetos no son de la misma clase, retorna falso.
         }
-        final Cantante other = (Cantante) obj;
-        return Objects.equals(this.nombreArtistico, other.nombreArtistico);
+        final Cantante other = (Cantante) obj; // Se castea el objeto a la clase "Cantante".
+        return Objects.equals(this.nombreArtistico, other.nombreArtistico); // Retorna verdadero si los valores de "nombreArtistico" en ambos objetos son iguales.
+
     }
-
-   
-
+    
     @Override
     public String toString() {
-        return "Cantnta"+ super.toString()  + "\nNombreArtistico:" + nombreArtistico + "\nGeneroMusical=" + generoMusical + "\nNumeroDeSencillos=" + numeroDeSencillos + "\nNumeroDeConciertos=" + numeroDeConciertos + "\nNumeroDeGiras=" + numeroDeGiras + "\nLista de Discos: " + discografia ;
+        return "Cantante"+ super.toString()  + "\nNombreArtistico:" + nombreArtistico + "\nGeneroMusical=" + generoMusical + "\nNumeroDeSencillos=" + numeroDeSencillos + "\nNumeroDeConciertos=" + numeroDeConciertos + "\nNumeroDeGiras=" + numeroDeGiras + "\nLista de Discos: " + discografia ;
     }  
 }

@@ -18,7 +18,7 @@ public class Disco {
     public Disco() {
         // constructor por defecto sin parámetros
     }
-
+    
     public Disco(int codigo, String nombre, int anioDeLanzamiento) {
         this.codigo = codigo; // asigna el código del disco a la variable de instancia correspondiente
         this.nombre = nombre; // asigna el nombre del disco a la variable de instancia correspondiente

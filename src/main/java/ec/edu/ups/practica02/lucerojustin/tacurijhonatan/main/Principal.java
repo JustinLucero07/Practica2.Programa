@@ -152,19 +152,25 @@ public class Principal {
                     }
                     break;
                 case 3:
-                    System.out.println("Ingrese el nombre del compositor : "); // Imprime un mensaje para que el usuario ingrese el nombre del compositor
-                    String comp = teclado.next(); // Lee la entrada del usuario y la almacena en la variable "comp"
-                    Compositor compo = (Compositor)controlador.read(comp); // Busca en la base de datos la información del compositor ingresado por el usuario y la almacena en la variable "compo"
-                    if(compo == null){ // Verifica si la variable "compo" está vacía, lo que significa que no se encontró el compositor buscado
-                        System.out.println("Compositor no existe"); // Imprime un mensaje de error si el compositor no existe en la base de datos
-                    } else if(compo != null){ // Si la variable "compo" no está vacía, significa que se encontró la información del compositor
-                        System.out.println("Ingrese el nombre del cantante:" ); // Imprime un mensaje solicitando el nombre del cantante
-                        String cant = teclado.next(); // Lee la entrada del usuario y la almacena en la variable "cant"
-                        Cantante canta = (Cantante)controlador.read(cant); // Busca en la base de datos la información del cantante ingresado por el usuario y la almacena en la variable "canta"
-                        if (canta == null ){ // Verifica si la variable "canta" está vacía, lo que significa que no se encontró el cantante buscado
-                            System.out.println("El cantante no existia : "); // Imprime un mensaje de error si el cantante no existe en la base de datos
-                        }else if (canta != null){ // Si la variable "canta" no está vacía, significa que se encontró la información del cantante
-                            compo.agregarCliente(canta); // Agrega al cantante a la lista de clientes del compositor
+                    System.out.println("Ingrese el numero de clientes que desea agregar: ");
+                    int ag = teclado.nextInt();
+                    
+                    for (int i = 0; i < ag; i++) {
+                        System.out.println("Ingrese el nombre del compositor al que le quiere agregar un cantante: "); // Imprime un mensaje para que el usuario ingrese el nombre del compositor
+                        String comp = teclado.next(); // Lee la entrada del usuario y la almacena en la variable "comp"
+                        Compositor compo = (Compositor)controlador.read(comp); // Busca en la base de datos la información del compositor ingresado por el usuario y la almacena en la variable "compo"
+                        if(compo == null){ // Verifica si la variable "compo" está vacía, lo que significa que no se encontró el compositor buscado
+                            System.out.println("Compositor no existe"); // Imprime un mensaje de error si el compositor no existe en la base de datos
+                        } else if(compo != null){ // Si la variable "compo" no está vacía, significa que se encontró la información del compositor
+                            System.out.println("Ingrese el nombre del cantante:" ); // Imprime un mensaje solicitando el nombre del cantante
+                            String cant = teclado.next(); // Lee la entrada del usuario y la almacena en la variable "cant"
+                            Cantante canta = (Cantante)controlador.read(cant); // Busca en la base de datos la información del cantante ingresado por el usuario y la almacena en la variable "canta"
+                            System.out.println("El cantante se agrego con exito");
+                            if (canta == null ){ // Verifica si la variable "canta" está vacía, lo que significa que no se encontró el cantante buscado
+                                System.out.println("El cantante no existia : "); // Imprime un mensaje de error si el cantante no existe en la base de datos
+                            }else if (canta != null){ // Si la variable "canta" no está vacía, significa que se encontró la información del cantante
+                                compo.agregarCliente(canta); // Agrega al cantante a la lista de clientes del compositor
+                            }
                         }
                     }
                     break; // Sale del switch

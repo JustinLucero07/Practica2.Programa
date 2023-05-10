@@ -83,7 +83,5 @@ public class Cancion {
     @Override
     public String toString() { // Override del método toString para mostrar información del objeto Cancion en forma de string
         return "\nCancion: " + "\nCodigo: " + codigo + "\nTitulo=" + titulo + "\nLetra=" + letra + "\nTiempoEnMinutos=" + tiempoEnMinutos + '}';
-    }
-    
-    
+    }  
 }
