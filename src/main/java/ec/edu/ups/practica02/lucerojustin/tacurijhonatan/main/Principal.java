@@ -154,8 +154,7 @@ public class Principal {
                 case 3:
                     System.out.println("Ingrese el numero de clientes que desea agregar: ");
                     int ag = teclado.nextInt();
-                    
-                    for (int i = 0; i < ag; i++) {
+                    for (int i = 0; i < ag; i++) { //Bucle que pide los clientes que quiere agregar segun el numero de quieres antes preguntado
                         System.out.println("Ingrese el nombre del compositor al que le quiere agregar un cantante: "); // Imprime un mensaje para que el usuario ingrese el nombre del compositor
                         String comp = teclado.next(); // Lee la entrada del usuario y la almacena en la variable "comp"
                         Compositor compo = (Compositor)controlador.read(comp); // Busca en la base de datos la información del compositor ingresado por el usuario y la almacena en la variable "compo"
